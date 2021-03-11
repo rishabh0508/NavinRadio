@@ -1,0 +1,44 @@
+$def with (greeting)
+<html>
+ <head>
+    <title>Display</title>
+ </head>
+ <body>
+  <br>
+ <h1>Available Stocks</h1>
+ <table border="5" style="width:115%" bgcolor="silver">
+     <tr>
+         <td><h1>Stock Name</h1></td>
+         <td><h1>Brand Name</h1></td>
+         <td><h1>Model Name</h1></td>
+         <td><h1>Quantity</h1></td>
+         <td><h1>Cost Price</h1></td>
+         <td><h1>Click to sell</h1></td>
+
+         <td></td>
+     </tr>
+  $for i in greeting:
+      <tr>
+          <td>$i["item name"]</td>
+          <td>$i["brand name"]</td>
+          <td>$i["model name"]</td>
+          <td>$i["quantity"]</td>
+          <td>$i["cost price"]</td>
+
+
+          <td>
+              <form method="post" action="/delete" method="post">
+
+                  <label for="q" class="control-label">sell Quantity:</label>
+                  <input class="form-control" type="number" id="q" name="q" placeholder=" Sell Quantity">
+
+                  <button type="submit"  name="_id" value="$i['_id']">Sell
+                  </button>
+
+              </form>
+
+          </td>
+      </tr>
+ </table>
+ </body>
+</html>
